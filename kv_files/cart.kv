@@ -1,0 +1,131 @@
+#:kivy 2.0.0
+<CartScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        # Header
+        BoxLayout:
+            size_hint_y: None
+            height: "100dp"  # Mengatur tinggi header menjadi lebih standar
+            padding: [20, 20, 20, 20]
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning header
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Keranjang kuning"
+                color: (0, 0, 0, 1)  # Warna teks hitam
+                font_size: "24sp"
+                bold: True
+
+        # Produk di dalam keranjang
+        BoxLayout:
+            size_hint_y: None
+            height: "120dp"
+            padding: [10, 10]
+            spacing: 10
+            canvas.before:
+                Color:
+                    rgba: (1, 0.9, 0.8, 1)  # Warna latar belakang produk
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                source: "assets/produk/produk3.jpeg"  # Ganti dengan gambar produk asli
+                size_hint_x: None
+                width: "100dp"
+                allow_stretch: True
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: [10, 0]
+
+                Label:
+                    text: "Benih Padi Inpari"
+                    font_size: "18sp"
+                    color: (0, 0, 0, 1)  # Warna teks hitam
+
+                Label:
+                    text: "Rp. 50.000"
+                    font_size: "16sp"
+                    color: (0, 0, 0, 1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_x: None
+                width: "100dp"
+
+                Button:
+                    text: "-"
+                    on_press: root.decrement_item()
+                    size_hint: None, None
+                    size: "40dp", "40dp"
+
+                Label:
+                    id: item_count
+                    text: "1"
+                    color: (0, 0, 0, 1)
+                    font_size: "18sp"
+                    size_hint_x: None
+                    width: "40dp"
+                    text_size: self.size
+                    halign: "center"
+                    valign: "middle"
+
+                Button:
+                    text: "+"
+                    on_press: root.increment_item()
+                    size_hint: None, None
+                    size: "40dp", "40dp"
+
+        # Tombol Checkout
+        Button:
+            text: "CheckOut"
+            size_hint_y: None
+            height: "60dp"
+            background_color: (1, 0.8, 0.2, 1)  # Warna kuning untuk tombol
+            color: (0, 0, 0, 1)  # Warna teks hitam
+            font_size: "18sp"
+            on_press: root.checkout()
+
+        # Bottom NavBar
+        BoxLayout:
+            size_hint_y: None
+            height: "60dp"
+            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
+            spacing: 0  # Menghilangkan jarak antar tombol
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50, 50, 0, 0]
+            
+            ImageButton:
+                source: 'assets/home.png'  # Ikon Home
+                on_press: root.go_to_home()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/search.png'  # Ikon Search
+                on_press: root.go_to_search()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/cart.png'  # Ikon Cart
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/notification.png'  # Ikon Notification
+                on_press: root.go_to_notification()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/profile.png'  # Ikon Profile
+                on_press: root.go_to_profile()
+                size_hint_x: 1 

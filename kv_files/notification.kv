@@ -1,0 +1,60 @@
+#:kivy 2.0.0
+<NotificationScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: (0.96, 0.96, 0.96, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Notifikasi'
+            font_size: 28
+            color: (0.2, 0.6, 0.86, 1)
+            bold: True
+
+        Label:
+            text: 'Pesanan dan promo terbaru akan muncul disini...'
+            font_size: 16
+            color: (0.4, 0.4, 0.4, 1)
+
+        # Bottom NavBar
+        BoxLayout:
+            size_hint_y: None
+            height: "60dp"
+            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
+            spacing: 0  # Menghilangkan jarak antar tombol
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50, 50, 0, 0]
+            
+            ImageButton:
+                source: 'assets/home.png'  # Ikon Home
+                on_press: root.go_to_home()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/search.png'  # Ikon Search
+                on_press: root.go_to_search()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/cart.png'  # Ikon Cart
+                on_press: root.go_to_cart()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/notification.png'  # Ikon Notification
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/profile.png'  # Ikon Profile
+                on_press: root.go_to_profile()
+                size_hint_x: 1 

@@ -1,0 +1,95 @@
+#:kivy 2.0.0
+
+<ImageButton@ButtonBehavior+Image>:
+    size_hint: None, None
+    allow_stretch: True
+    keep_ratio: True  # Agar gambar tetap proporsional
+    size: 60, 60  # Ukuran gambar (ikon)
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+    
+        # Header
+        BoxLayout:
+            size_hint_y: None
+            height: "120dp"
+            padding: [10, 10, 10, 10]
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: "Selamat Datang"
+                color: (0, 0, 0, 1)  # Warna teks hitam
+                font_size: "24sp"
+                bold: True
+
+        # Title
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            padding: [10, 0]
+            canvas.before:
+            Label:
+                text: "Produk terlaris"
+                font_size: "20sp"
+                color: (1, 1, 1, 1)  # Warna teks putih
+
+        # Produk Grid
+        GridLayout:
+            cols: 2
+            row_default_height: "150dp"
+            row_force_default: True
+            spacing: "10dp"
+            padding: [10, 10]
+
+            Image:
+                source: "assets/produk/produk1.jpeg"  
+            Image:
+                source: "assets/produk/produk2.jpeg"  
+            Image:
+                source: "assets/produk/produk3.jpeg" 
+            Image:
+                source: "assets/produk/produk4.jpeg"
+
+        # Bottom NavBar
+        BoxLayout:
+            size_hint_y: None
+            height: "60dp"
+            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
+            spacing: 0  # Menghilangkan jarak antar tombol
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50, 50, 0, 0]
+            
+            ImageButton:
+                source: 'assets/home.png'  # Ikon Home
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/search.png'  # Ikon Search
+                on_press: root.go_to_search()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/cart.png'  # Ikon Cart
+                on_press: root.go_to_cart()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/notification.png'  # Ikon Notification
+                on_press: root.go_to_notification()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/profile.png'  # Ikon Profile
+                on_press: root.go_to_profile()
+                size_hint_x: 1 

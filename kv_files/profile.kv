@@ -1,0 +1,129 @@
+#:kivy 2.0.0
+<ProfileScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        # Header
+        BoxLayout:
+            size_hint_y: None
+            height: "70dp"
+            padding: "10dp"
+            canvas.before:
+                Color:
+                    rgba: 1, 0.8, 0.2, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "Profil"
+                font_size: "20sp"
+                color: 0, 0, 0, 1
+            Button:
+                size_hint: None, None
+                size: "30dp", "30dp"
+                background_normal: "assets/images/edit_icon.png"
+
+        # Profile picture layout
+        BoxLayout:
+            size_hint_y: None
+            height: '150dp'
+            padding: [20, 20, 20, 20]
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Warna putih
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Image:
+                source: 'path_to_profile_picture.png'
+                size_hint: None, None
+                size: '100dp', '100dp'
+                allow_stretch: True
+                keep_ratio: False
+
+        # Phone layout
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            padding: [20, 20, 20, 20]
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Warna putih
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: 'Phone: 123-456-7890'
+                font_size: '18sp'
+                color: (0, 0, 0, 1)  # Warna teks hitam
+
+        # Menu Buttons
+        BoxLayout:
+            orientation: "vertical"
+            padding: "10dp"
+            spacing: "10dp"
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Warna putih
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    
+            Button:
+                background_color: 1, 0.8, 0.2, 1
+                text: "Pesan saya"
+            Button:
+                background_color: 1, 0.8, 0.2, 1
+                text: "Mulai jual"
+                
+
+            Button:
+                background_color: 1, 0.8, 0.2, 1
+                text: "Tentang kami"
+                on_press: root.go_to_aboutus()
+
+            # Tombol Logout
+            Button:
+                text: 'Logout'
+                size_hint_y: None
+                height: '50dp'
+                background_color: (1, 0.3, 0.3, 1)  # Warna tombol merah
+                on_press: root.open_logout_popup()  # Mengakses metode dari root
+        
+        # Bottom NavBar
+        BoxLayout:
+            size_hint_y: None
+            height: "60dp"
+            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
+            spacing: 0  # Menghilangkan jarak antar tombol
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50, 50, 0, 0]
+            
+            ImageButton:
+                source: 'assets/home.png'  # Ikon Home
+                on_press: root.go_to_home()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/search.png'  # Ikon Search
+                on_press: root.go_to_search()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/cart.png'  # Ikon Cart
+                on_press: root.go_to_cart()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/notification.png'  # Ikon Notification
+                on_press: root.go_to_notification()
+                size_hint_x: 1 
+
+            ImageButton:
+                source: 'assets/profile.png'  # Ikon Profile
+                size_hint_x: 1 
