@@ -2,7 +2,13 @@
 <SearchScreen>:
     BoxLayout:
         orientation: 'vertical'
-        
+            # canvas.before:
+            # Color:
+            #     rgba: (1, 1, 1, 1)  # Background putih untuk seluruh layar
+            # Rectangle:
+            #     pos: self.pos
+            #     size: self.size
+
         # Header (Yellow background)
         BoxLayout:
             size_hint_y: None
@@ -11,15 +17,15 @@
             canvas.before:
                 Color:
                     rgba: 1, 0.8, 0.2, 1  # Yellow color
-                Rectangle:
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
-
+                    radius: [0, 0, 50, 50]  # Radius melengkung di sudut bawah
             Label:
                 text: "Searching"
                 font_size: "24sp"
                 bold: True
-                color: (0, 0, 0, 1)  # Black text
+                color: (1, 1, 1, 1)  # Black text
         
         # Lokasi Anda (Container untuk lokasi)
         BoxLayout:
@@ -28,19 +34,20 @@
             spacing: 10
             size_hint_y: None
             height: "120dp"
+
             
             BoxLayout:
                 spacing: 5
                 size_hint_y: None
                 height: "40dp"
                 Image:
-                    source: 'assets/location_icon.png'  # Tambahkan icon lokasi
+                    source: 'assets/icon/location.png'  # Tambahkan icon lokasi
                     size_hint_x: None
                     width: "30dp"
                 Label:
                     text: "Lokasi anda"
                     font_size: "18sp"
-                    color: (0, 0, 0, 1)
+                    color: (1, 1, 1, 1)
             
             Label:
                 text: "Boyolali, Boyolali, Kabupaten Boyolali, Jawa Tengah"

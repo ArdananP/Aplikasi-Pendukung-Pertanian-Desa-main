@@ -19,13 +19,13 @@
         Label:
             text: "Selamat Datang Di\nAplikasi Pendukung Pertanian Desa"
             font_size: 26
-            color: 0, 0, 0, 1  # Warna teks hitam untuk keterbacaan
-            font_name: 'assets/font/Atop.ttf'  # Tentukan path ke file font Anda
-            size_hint_x: None  # Agar lebar label dapat ditentukan
-            width: self.parent.width * 0.8  # Menentukan lebar label
-            halign: 'center'  # Mengatur teks agar rata tengah
-            text_size: self.size  # Mengatur ukuran teks sesuai ukuran label
-            pos_hint: {"center_y": 0.7}  # Menggeser label 40% ke atas
+            color: 0, 0, 0, 1  # Warna teks hitam
+            font_name: 'assets/font/Atop.ttf'
+            size_hint_x: None
+            width: self.parent.width * 0.8
+            halign: 'center'
+            text_size: self.size
+            pos_hint: {"center_y": 1}
             padding: 50
 
         RoundedButton:
@@ -37,21 +37,21 @@
     source: ''
     canvas.before:
         Color:
-            rgba: 1, 1, 1, 1  # Warna latar belakang tombol
+            rgba: 1, 1, 1, 1
         RoundedRectangle:
             pos: self.pos
             size: self.size
-            radius: [50, 50, 50, 50]  # Sudut yang melengkung
+            radius: [50, 50, 50, 50]
 
 <RoundedButton@Button>:
-    background_normal: ''  # Menghapus latar belakang default
-    background_color: 1, 0.8, 0.2, 1  # Warna oranye tertentu
+    background_normal: ''
+    background_color: 1, 0.8, 0.2, 1
     font_size: 18
-    color: 1, 1, 1, 1  # Warna teks putih
+    color: 1, 1, 1, 1
     canvas.before:
         Color:
-            rgba: self.background_color  # Menggunakan warna tombol
+            rgba: self.background_color
         RoundedRectangle:
             pos: self.pos
             size: self.size
-            radius: [30, 30, 30, 30]  # Sudut yang melengkung
+            radius: [30, 30, 30, 30]
