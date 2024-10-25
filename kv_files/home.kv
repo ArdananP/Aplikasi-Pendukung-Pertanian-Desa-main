@@ -4,7 +4,7 @@
     size_hint: None, None
     allow_stretch: True
     keep_ratio: True  # Agar gambar tetap proporsional
-    size: 40, 40  # Ukuran ikon lebih kecil
+    size: 30, 30  # Ukuran ikon lebih kecil
 
 <HomeScreen>:
     BoxLayout:
@@ -79,41 +79,37 @@
         BoxLayout:
             size_hint_y: None
             height: "60dp"
-            padding: [10, 10]  # Padding lebih presisi agar konten pas
-            spacing: 15  # Spacing konsisten antar tombol
+            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
+            spacing: 0  # Menghilangkan jarak antar tombol
             canvas.before:
                 Color:
-                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning untuk navbar
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
-                    radius: [50, 50, 0, 0]  # Radius bulat di sisi atas
+                    radius: [50, 50, 0, 0]
             
             ImageButton:
                 source: 'assets/home.png'  # Ikon Home
-                size_hint: 1, 1
-                width: 40  # Lebar tombol konsisten
+                on_press: root.go_to_home()
+                size_hint_x: 1 
 
             ImageButton:
                 source: 'assets/search.png'  # Ikon Search
                 on_press: root.go_to_search()
-                size_hint: 1, 1
-                width: 40
+                size_hint_x: 1 
 
             ImageButton:
                 source: 'assets/cart.png'  # Ikon Cart
                 on_press: root.go_to_cart()
-                size_hint: 1, 1
-                width: 40
+                size_hint_x: 1 
 
             ImageButton:
                 source: 'assets/notification.png'  # Ikon Notification
                 on_press: root.go_to_notification()
-                size_hint: 1, 1
-                width: 40
+                size_hint_x: 1 
 
             ImageButton:
                 source: 'assets/profile.png'  # Ikon Profile
                 on_press: root.go_to_profile()
-                size_hint: 1, 1
-                width: 40
+                size_hint_x: 1 
