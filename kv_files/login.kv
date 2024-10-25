@@ -24,8 +24,8 @@
         MinimalTextInput:
             id: username
             hint_text: 'Username'
-            multiline: False  # Single line input
-            write_tab: False  # Allow Tab key to move focus
+            multiline: True  # Single line input
+            write_tab: True  # Allow Tab key to move focus
 
         MinimalTextInput:
             id: password
@@ -45,8 +45,8 @@
 <MinimalTextInput@TextInput>:
     size_hint_y: None
     height: 40  # Compact height
-    multiline: False  # Single line input
-    write_tab: False  # Prevent Tab from entering text
+    multiline: True  # Single line input
+    write_tab: True  # Prevent Tab from entering text
     background_normal: ''  # Remove default background
     background_active: ''  # No active background
     canvas.before:

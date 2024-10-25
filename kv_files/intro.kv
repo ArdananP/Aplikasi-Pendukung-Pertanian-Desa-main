@@ -18,10 +18,15 @@
 
         Label:
             text: "Selamat Datang Di\nAplikasi Pendukung Pertanian Desa"
-            font_size: 24
-            halign: 'center'
+            font_size: 26
             color: 0, 0, 0, 1  # Warna teks hitam untuk keterbacaan
-            font_name: 'assets/font/Atop-R99O3.ttf'  # Tentukan path ke file font Anda
+            font_name: 'assets/font/Atop.ttf'  # Tentukan path ke file font Anda
+            size_hint_x: None  # Agar lebar label dapat ditentukan
+            width: self.parent.width * 0.8  # Menentukan lebar label
+            halign: 'center'  # Mengatur teks agar rata tengah
+            text_size: self.size  # Mengatur ukuran teks sesuai ukuran label
+            pos_hint: {"center_y": 0.7}  # Menggeser label 40% ke atas
+            padding: 50
 
         RoundedButton:
             text: "NEXT"
