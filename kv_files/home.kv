@@ -4,12 +4,18 @@
     size_hint: None, None
     allow_stretch: True
     keep_ratio: True  # Agar gambar tetap proporsional
-    size: 60, 60  # Ukuran gambar (ikon)
+    size: 40, 40  # Ukuran ikon lebih kecil
 
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
-    
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)  # Background putih untuk seluruh layar
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
         # Header
         BoxLayout:
             size_hint_y: None
@@ -17,10 +23,11 @@
             padding: [10, 10, 10, 10]
             canvas.before:
                 Color:
-                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
-                Rectangle:
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning pada Header
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [0, 0, 50, 50]  # Radius melengkung di sudut bawah
 
             Label:
                 text: "Selamat Datang"
@@ -34,10 +41,16 @@
             height: "50dp"
             padding: [10, 0]
             canvas.before:
+                Color:
+                    rgba: (1, 1, 1, 1)  # Background putih untuk Title
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
             Label:
                 text: "Produk terlaris"
                 font_size: "20sp"
-                color: (1, 1, 1, 1)  # Warna teks putih
+                color: (0, 0, 0, 1)  # Warna teks hitam
 
         # Produk Grid
         GridLayout:
@@ -46,6 +59,12 @@
             row_force_default: True
             spacing: "10dp"
             padding: [10, 10]
+            canvas.before:
+                Color:
+                    rgba: (1, 1, 1, 1)  # Background putih untuk grid produk
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
             Image:
                 source: "assets/produk/produk1.jpeg"  
@@ -60,36 +79,41 @@
         BoxLayout:
             size_hint_y: None
             height: "60dp"
-            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
-            spacing: 0  # Menghilangkan jarak antar tombol
+            padding: [10, 10]  # Padding lebih presisi agar konten pas
+            spacing: 15  # Spacing konsisten antar tombol
             canvas.before:
                 Color:
-                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning untuk navbar
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
-                    radius: [50, 50, 0, 0]
+                    radius: [50, 50, 0, 0]  # Radius bulat di sisi atas
             
             ImageButton:
                 source: 'assets/home.png'  # Ikon Home
-                size_hint_x: 1 
+                size_hint: 1, 1
+                width: 40  # Lebar tombol konsisten
 
             ImageButton:
                 source: 'assets/search.png'  # Ikon Search
                 on_press: root.go_to_search()
-                size_hint_x: 1 
+                size_hint: 1, 1
+                width: 40
 
             ImageButton:
                 source: 'assets/cart.png'  # Ikon Cart
                 on_press: root.go_to_cart()
-                size_hint_x: 1 
+                size_hint: 1, 1
+                width: 40
 
             ImageButton:
                 source: 'assets/notification.png'  # Ikon Notification
                 on_press: root.go_to_notification()
-                size_hint_x: 1 
+                size_hint: 1, 1
+                width: 40
 
             ImageButton:
                 source: 'assets/profile.png'  # Ikon Profile
                 on_press: root.go_to_profile()
-                size_hint_x: 1 
+                size_hint: 1, 1
+                width: 40

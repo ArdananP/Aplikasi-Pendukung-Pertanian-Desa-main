@@ -1,5 +1,4 @@
 #:kivy 2.0.0
-
 <LoginScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -7,7 +6,7 @@
         spacing: 15
         canvas.before:
             Color:
-                rgba: (0.96, 0.96, 0.96, 1)  # Light background
+                rgba: (0.96, 0.96, 0.96, 1)  # Background terang
             Rectangle:
                 pos: self.pos
                 size: self.size
@@ -15,7 +14,7 @@
         Label:
             text: 'Login'
             font_size: 28
-            color: (0, 0, 0, 1)  # Text color set to orange
+            color: (0, 0, 0, 1)  # Warna teks hitam
             bold: True
             halign: 'center'
             size_hint_y: None
@@ -24,8 +23,8 @@
         MinimalTextInput:
             id: username
             hint_text: 'Username'
-            multiline: True  # Single line input
-            write_tab: True  # Allow Tab key to move focus
+            multiline: False  # Input satu baris
+            write_tab: False  # Tidak pindah fokus dengan Tab
 
         MinimalTextInput:
             id: password
@@ -44,28 +43,28 @@
 
 <MinimalTextInput@TextInput>:
     size_hint_y: None
-    height: 40  # Compact height
-    multiline: True  # Single line input
-    write_tab: True  # Prevent Tab from entering text
-    background_normal: ''  # Remove default background
-    background_active: ''  # No active background
-    canvas.before:
-        Color:
-            rgba: (0.9, 0.9, 0.9, 1)  # Light grey background
-        RoundedRectangle:
-            pos: self.pos
-            size: self.size
-            radius: [10]
+    height: 40
+    multiline: False  # Input satu baris
+    write_tab: False
+    background_normal: ''  # Hapus latar belakang default
+    background_active: ''  # Hapus latar aktif
+    # canvas.before:
+    #     Color:
+    #         rgba: (0.9, 0.9, 0.9, 1)  # Background abu-abu terang
+    #     RoundedRectangle:
+    #         pos: self.pos
+    #         size: self.size
+    #         radius: [10]
     padding: [10, 10]
     font_size: 16
-    foreground_color: (0, 0, 0, 1)  # Black text
-    hint_text_color: (0.7, 0.7, 0.7, 1)  # Light grey hint
-    cursor_color: (0.2, 0.6, 0.86, 1)  # Blue cursor
+    foreground_color: (0, 0, 0, 1)  # Teks hitam
+    hint_text_color: (0.7, 0.7, 0.7, 1)  # Hint abu-abu terang
+    cursor_color: (0.2, 0.6, 0.86, 1)  # Cursor biru
 
 <MinimalButton@Button>:
-    background_normal: ''  # Remove default background
-    background_color: (1, 0.8, 0.2, 1)  # Orange background
-    color: (1, 1, 1, 1)  # White text
+    background_normal: ''  # Hapus background default
+    background_color: (1, 0.8, 0.2, 1)  # Background oranye
+    color: (1, 1, 1, 1)  # Teks putih
     font_size: 16
     size_hint_y: None
     height: 45
