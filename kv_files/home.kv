@@ -3,15 +3,15 @@
 <ImageButton@ButtonBehavior+Image>:
     size_hint: None, None
     allow_stretch: True
-    keep_ratio: True  # Agar gambar tetap proporsional
-    size: 30, 30  # Ukuran ikon lebih kecil
+    keep_ratio: True
+    size: 30, 30  # Ukuran ikon kecil
 
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
             Color:
-                rgba: (1, 1, 1, 1)  # Background putih untuk seluruh layar
+                rgba: (1, 1, 1, 1)
             Rectangle:
                 pos: self.pos
                 size: self.size
@@ -20,96 +20,211 @@
         BoxLayout:
             size_hint_y: None
             height: "120dp"
-            padding: [10, 10, 10, 10]
+            padding: [10, 10]
             canvas.before:
                 Color:
-                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning pada Header
+                    rgba: (1, 0.8, 0.2, 1)
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
-                    radius: [0, 0, 50, 50]  # Radius melengkung di sudut bawah
+                    radius: [0, 0, 50, 50]
 
             Label:
                 text: "Selamat Datang"
-                color: (0, 0, 0, 1)  # Warna teks hitam
+                color: (0, 0, 0, 1)
                 font_size: "24sp"
                 bold: True
 
-        # Title
+        # Produk Terlaris dengan Background Rounded
         BoxLayout:
             size_hint_y: None
             height: "50dp"
             padding: [10, 0]
             canvas.before:
                 Color:
-                    rgba: (1, 1, 1, 1)  # Background putih untuk Title
-                Rectangle:
+                    rgba: (0.9, 0.9, 0.9, 1)
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [20, 20, 20, 20]
 
             Label:
-                text: "Produk terlaris"
+                text: "Produk Terlaris"
                 font_size: "20sp"
-                color: (0, 0, 0, 1)  # Warna teks hitam
+                color: (0, 0, 0, 1)
 
         # Produk Grid
-        GridLayout:
-            cols: 2
-            row_default_height: "150dp"
-            row_force_default: True
-            spacing: "10dp"
-            padding: [10, 10]
+        ScrollView:
+            GridLayout:
+                cols: 2
+                spacing: "10dp"
+                padding: [10, 10]
+                row_default_height: "240dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                ProductBox:
+                    source: "assets/produk/produk1.jpeg"
+                    product_name: "Produk 1"
+                    price: "RP.100.000"
+                    rating: "4.5 ⭐"
+
+                ProductBox:
+                    source: "assets/produk/produk2.jpeg"
+                    product_name: "Produk 2"
+                    price: "RP.150.000"
+                    rating: "4.7 ⭐"
+
+        # Berita Terbaru dengan Background Rounded
+        BoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            padding: [10, 0]
             canvas.before:
                 Color:
-                    rgba: (1, 1, 1, 1)  # Background putih untuk grid produk
-                Rectangle:
+                    rgba: (0.9, 0.9, 0.9, 1)
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [20, 20, 20, 20]
 
-            Image:
-                source: "assets/produk/produk1.jpeg"  
-            Image:
-                source: "assets/produk/produk2.jpeg"  
-            Image:
-                source: "assets/produk/produk3.jpeg" 
-            Image:
-                source: "assets/produk/produk4.jpeg"
+            Label:
+                text: "Berita Terbaru"
+                font_size: "20sp"
+                color: (0, 0, 0, 1)
 
-        # Bottom NavBar
+        # ScrollView untuk Berita
+        ScrollView:
+            size_hint_y: None
+            height: "180dp"
+            do_scroll_y: False
+            GridLayout:
+                cols: 5
+                spacing: "15dp"
+                padding: [10, 10]
+                size_hint_x: None
+                width: self.minimum_width
+
+                NewsBox:
+                    image_source: "assets/news/news1.jpeg"
+                    title: "Berita 1"
+
+                NewsBox:
+                    image_source: "assets/news/news2.jpeg"
+                    title: "Berita 2"
+
+        # Bottom NavBar (Diperbaiki)
         BoxLayout:
             size_hint_y: None
             height: "60dp"
-            padding: [5, 10]  # Menghilangkan padding agar tombol memenuhi lebar layar
-            spacing: 0  # Menghilangkan jarak antar tombol
+            spacing: 10
+            padding: [10, 10]
             canvas.before:
                 Color:
-                    rgba: (1, 0.8, 0.2, 1)  # Warna kuning
+                    rgba: (1, 0.8, 0.2, 1)
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
                     radius: [50, 50, 0, 0]
-            
+
+            # Ikon di NavBar dengan Proporsi Sama
             ImageButton:
-                source: 'assets/home.png'  # Ikon Home
+                source: 'assets/home.png'
+                size_hint_x: 1
                 on_press: root.go_to_home()
-                size_hint_x: 1 
+
 
             ImageButton:
-                source: 'assets/search.png'  # Ikon Search
+                source: 'assets/search.png'
+                size_hint_x: 1
                 on_press: root.go_to_search()
-                size_hint_x: 1 
+
 
             ImageButton:
-                source: 'assets/cart.png'  # Ikon Cart
+                source: 'assets/cart.png'
+                size_hint_x: 1
                 on_press: root.go_to_cart()
-                size_hint_x: 1 
+
 
             ImageButton:
-                source: 'assets/notification.png'  # Ikon Notification
+                source: 'assets/notification.png'
+                size_hint_x: 1
                 on_press: root.go_to_notification()
-                size_hint_x: 1 
+
 
             ImageButton:
-                source: 'assets/profile.png'  # Ikon Profile
+                source: 'assets/profile.png'
+                size_hint_x: 1
                 on_press: root.go_to_profile()
-                size_hint_x: 1 
+
+<ProductBox@BoxLayout>:
+    source: ""
+    product_name: ""
+    price: ""
+    rating: ""
+    orientation: 'vertical'
+    padding: [5, 5]
+    spacing: 5
+
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20, 20, 20, 20]
+
+    Image:
+        source: root.source
+        allow_stretch: True
+        keep_ratio: True
+
+    Label:
+        text: root.product_name
+        font_size: "16sp"
+        color: (0, 0, 0, 1)
+
+    BoxLayout:
+        size_hint_y: None
+        height: "30dp"
+        spacing: 5
+
+        Label:
+            text: root.price
+            font_size: "14sp"
+            color: (0, 0, 0, 1)
+
+        Label:
+            text: root.rating
+            font_size: "14sp"
+            color: (0, 0, 0, 1)
+
+<NewsBox@BoxLayout>:
+    image_source: ""
+    title: ""
+    orientation: 'horizontal'
+    size_hint_x: None
+    width: "300dp"
+    height: "150dp"
+    spacing: 10
+    padding: [10, 10]
+
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [10, 10, 10, 10]
+
+    Image:
+        source: root.image_source
+        allow_stretch: True
+        size_hint_x: 0.4
+
+    Label:
+        text: root.title
+        font_size: "14sp"
+        color: (0, 0, 0, 1)
+        valign: "middle"
+        text_size: self.size
