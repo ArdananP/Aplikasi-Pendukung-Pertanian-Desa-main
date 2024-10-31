@@ -1,4 +1,5 @@
 #:kivy 2.0.0
+
 <AboutUsScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -11,86 +12,107 @@
             canvas.before:
                 Color:
                     rgba: (1, 0.8, 0.2, 1)  # Warna kuning
-                Rectangle:
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
+                    radius: [0, 0, 30, 30]
 
             Label:
                 text: "Tentang Kami"
-                font_size: "24sp"
+                font_size: "26sp"
                 color: (0, 0, 0, 1)  # Warna teks hitam
                 bold: True
+                valign: 'middle'
 
         # Konten Utama
         ScrollView:
             BoxLayout:
                 orientation: 'vertical'
-                padding: [10, 10, 10, 10]
-                spacing: 10
+                padding: [15, 15, 15, 15]
+                spacing: 15
                 size_hint_y: None
                 height: self.minimum_height
+                canvas.before:
+                    Color:
+                        rgba: (0.95, 0.95, 0.95, 1)  # Background abu-abu muda untuk konten
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
 
                 Label:
                     text: "Aplikasi Pendukung Pertanian Desa"
                     font_size: '22sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.1, 0.5, 0.2, 1)  # Hijau gelap untuk judul utama
                     bold: True
                     size_hint_y: None
                     height: '40dp'
+                    halign: 'center'
 
                 Label:
                     text: "Kami adalah tim yang berdedikasi untuk menyediakan solusi digital yang membantu meningkatkan pertanian di desa-desa. Aplikasi ini dirancang untuk mempermudah akses informasi bagi para petani dan memberikan kemudahan dalam pengelolaan hasil pertanian."
                     font_size: '16sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.2, 0.2, 0.2, 1)  # Warna abu-abu gelap untuk teks deskripsi
                     size_hint_y: None
-                    height: '100dp'
-                    halign: 'left'
+                    height: '120dp'
+                    halign: 'justify'
                     valign: 'middle'
-                    text_size: self.width, None
+                    text_size: self.width - 20, None  # Membuat teks rata kiri-kanan
 
                 Label:
                     text: "Visi Kami"
                     font_size: '20sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.1, 0.5, 0.2, 1)
                     bold: True
                     size_hint_y: None
                     height: '40dp'
+                    halign: 'center'
 
                 Label:
                     text: "Membawa teknologi modern ke tangan petani desa untuk meningkatkan produktivitas, efisiensi, dan kualitas hidup mereka."
                     font_size: '16sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.2, 0.2, 0.2, 1)
                     size_hint_y: None
                     height: '80dp'
-                    halign: 'left'
+                    halign: 'justify'
                     valign: 'middle'
-                    text_size: self.width, None
+                    text_size: self.width - 20, None
 
                 Label:
                     text: "Misi Kami"
                     font_size: '20sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.1, 0.5, 0.2, 1)
                     bold: True
                     size_hint_y: None
                     height: '40dp'
+                    halign: 'center'
 
                 Label:
                     text: "1. Mengedukasi para petani dengan informasi yang mudah diakses dan relevan.\n2. Memberikan solusi digital untuk pengelolaan lahan, bibit, dan hasil panen.\n3. Menyediakan platform komunikasi antar petani dan distributor untuk memaksimalkan pemasaran hasil pertanian."
                     font_size: '16sp'
-                    color: (1, 1, 1, 1)
+                    color: (0.2, 0.2, 0.2, 1)
                     size_hint_y: None
                     height: '160dp'
-                    halign: 'left'
+                    halign: 'justify'
                     valign: 'middle'
-                    text_size: self.width, None
+                    text_size: self.width - 20, None
 
-       # Tombol Back
+        # Tombol Back
         BoxLayout:
             size_hint_y: None
             height: '60dp'
             padding: [10, 10]
+            canvas.before:
+                Color:
+                    rgba: (1, 0.8, 0.2, 1)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [30, 30, 0, 0]
+
             Button:
                 text: 'Back'
+                font_size: '18sp'
+                bold: True
                 size_hint_y: None
                 height: '50dp'
                 background_color: (1, 0.8, 0.2, 1)  # Warna kuning untuk tombol back

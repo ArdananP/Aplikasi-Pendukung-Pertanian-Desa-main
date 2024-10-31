@@ -18,7 +18,6 @@ from screens.AboutUsScreen import AboutUsScreen
 from screens.IntroScreen import IntroScreen
 
 
-
 class MainApp(App):
     def build(self):
         sm = ScreenManager()

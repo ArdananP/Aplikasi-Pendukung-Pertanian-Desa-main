@@ -24,19 +24,6 @@
                 pos_hint: {"x": 0, "top": 1}  # Posisi di pojok kiri atas
                 on_press: root.go_to_intro()  # Fungsi kembali
 
-        # Gambar tambahan di bawah logo
-        # Kontainer untuk gambar dengan background lingkaran abu transparan
-            FloatLayout:
-                size_hint: (None, None)
-                size: "120dp", "120dp"
-                pos_hint: {"center_x": 0.5}
-
-                canvas.before:
-                    Color:
-                        rgba: (0.5, 0.5, 0.5, 0.3)  # Warna abu-abu transparan
-                    Ellipse:
-                        pos: self.pos
-                        size: self.size
         Image:
             source: 'assets/produk/login.png'
             size_hint: (0.4, 0.1)
